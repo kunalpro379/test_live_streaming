@@ -43,7 +43,7 @@ io.on('connection', socket => {
     socket.on('ice-candidate', (data) => {
         io.to(data.to).emit('ice-candidate', { from: socket.id, candidate: data.candidate });
     });
-
+    
     socket.on('disconnect', () => {
         console.log(`User disconnected: ${socket.id}`);
         users.delete(socket.id);
